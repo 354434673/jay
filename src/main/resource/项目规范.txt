@@ -1,0 +1,19 @@
+一、项目编码统一使用：UTF-8
+二、技术要求：spring+springMVC+Mybatis+js+jq+jsp+ajax
+	(后期加入缓存以及mysql主从和读写分离)
+三、项目名称要求：无
+四、包结构
+		com.jay.xxx
+					dao
+					service
+					entity
+					action
+					...
+五、实体和属性的命名要求：
+		t_interact -----> Interact
+		t_user     -----> User
+		
+		user_id    -----> userId
+		interact_id-----> interactId
+六、环境搭建
+	maven+git

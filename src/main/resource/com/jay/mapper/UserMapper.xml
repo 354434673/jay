@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jay.dao.UserDao">
+  <!-- <cache-ref namespace=""/> -->
+  <!-- 登录并认证 -->
+  <select id="loginUser" resultType="User" parameterType="String">
+  	SELECT 
+  	user_id userId,
+  	user_realname userRealName,
+  	user_username userName,
+  	user_password userPassword,
+  	user_salt userSalt,
+  	user_telphone userTelphone,
+  	user_email userEmali,
+  	user_birthday userBirthday,
+  	user_idcard userIdCard,
+  	user_creattime userCreatTime
+  	FROM life_user WHERE user_username =#{user_username}
+  </select>
+  <!-- 注册 -->
+  <insert id="registUser" parameterType="User">
+  	INSERT INTO life_user
+  	(user_id,user_realname,user_username,user_password,user_salt,
+  	user_telphone,user_email,user_birthday,user_idcard,user_creattime,
+  	user_sex,user_icon,user_state,user_last_login_date,user_activate)
+  	VALUES
+  	(#{userId},#{userRealName},#{userName},#{userPassword},#{userSalt},
+  	#{userTelphone},#{userEmali},#{userBirthday},#{userIdCard},
+  	#{userCreatTime},#{userSex},#{usetIcon},#{userState},#{userLastLoginDate},#{userActivate})
+  </insert>
+  <!-- 更改用户状态 -->
+  <update id="updateState" parameterType="String">
+  	UPDATE life_user SET user_activate = 1 WHERE user_username = #{user_username} AND user_email = #{user_email}
+  </update>
+</mapper>
