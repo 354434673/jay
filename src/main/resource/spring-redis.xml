@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="  
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
+										
+	  	<context:property-placeholder location="classpath:redis.properties" />  
+	    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
+	        <property name="maxIdle" value="300" />  
+	        <property name="maxActive" value="600" />  
+	        <property name="maxWait" value="10000" />  
+	        <property name="testOnBorrow" value="true" />  
+	    </bean>  
+		<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+			<constructor-arg index="0" ref="poolConfig"/>
+			<constructor-arg index="1" value="192.168.139.2"/>
+			<constructor-arg index="2" value="6379"/>
+			<constructor-arg index="3" value="10000"/>
+			<constructor-arg index="4" value="123456"/>
+		</bean>
+</beans>

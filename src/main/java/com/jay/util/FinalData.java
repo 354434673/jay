@@ -17,7 +17,7 @@ public class FinalData {
 	
 	public static String getValidate(String userName, String email,String validateCode){
 		
-		StringBuffer sb=new StringBuffer("点击下面链接激活账号，30分钟内有效，请尽快激活！</br>");
+		StringBuffer sb=new StringBuffer("点击下面链接激活账号，10分钟内有效，请尽快激活！</br>");
 			sb.append("<a href=\"http://localhost:8989/jay/user/updateUserActivate?email=");
 	        sb.append(email); 
 	        sb.append("&validateCode="); 

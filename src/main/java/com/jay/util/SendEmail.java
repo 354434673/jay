@@ -25,7 +25,7 @@ public class SendEmail {
 	public static void sendTxtMail(String email,String content) {
 		Properties props = new Properties();
 
-		Session session = Session.getInstance(props, null);
+		Session session = Session.getInstance(props);
 		
 		session.setDebug(true);// 打开debug模式，会打印发送细节到console
 		
@@ -53,12 +53,12 @@ public class SendEmail {
 			
 			transport.close();
 		} catch (AddressException e) {
-			// 此处处理AddressException异常 [The exception thrown when a wrongly
-			// formatted address is encountered.]
+			 e.printStackTrace();
 
 		} catch (MessagingException e) {
 			// 此处处理MessagingException异常 [The base class for all exceptions
 			// thrown by the Messaging classes ]
+			e.printStackTrace();
 		}
 	}
 }

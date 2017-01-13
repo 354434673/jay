@@ -111,9 +111,9 @@
 		</dependency>
 		<!-- spring-boot -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-web</artifactId>
-		    <version>1.0.2.RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.0.2.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -133,18 +133,24 @@
 			<artifactId>spring-aop</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<dependency>  
-	        <groupId>org.springframework</groupId>  
-	        <artifactId>spring-orm</artifactId>  
-	        <version>3.2.6.RELEASE</version>  
-      	</dependency>  
-		
-		<dependency>  
-	        <groupId>org.springframework</groupId>  
-	        <artifactId>spring-context-support</artifactId>  
-	        <version>3.2.6.RELEASE</version>  
-     	</dependency>  
+		<!-- spring和redis -->
+	    <dependency>  
+	        <groupId>org.springframework.data</groupId>  
+	        <artifactId>spring-data-redis</artifactId>  
+	        <version>1.0.2.RELEASE</version>  
+	    </dependency> 
+	    
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.2.6.RELEASE</version>
+		</dependency>
 
 		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-content-support</artifactId> 
 			<version>${spring.version}</version> </dependency> -->
@@ -195,13 +201,13 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>Redis.Clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.5.2</version>
 		</dependency>
-		
+
 		<!-- json数据 -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -209,37 +215,37 @@
 			<version>1.9.13</version>
 		</dependency>
 		<!-- javamail -->
-		<dependency>    
-        	<groupId>javax.mail</groupId>    
-	        <artifactId>mail</artifactId>    
-	        <version>1.4.7</version>    
-	    </dependency>  
-		
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+
 		<!-- shiron权限 -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
 			<version>${shiro.version}</version>
-		 </dependency>  
-		 
-		<dependency>  
-            <groupId>org.apache.shiro</groupId>  
-            <artifactId>shiro-web</artifactId>  
-            <version>${shiro.version}</version>  
-        </dependency>  
-        
-        <dependency>  
-            <groupId>org.apache.shiro</groupId>  
-            <artifactId>shiro-cas</artifactId>  
-            <version>${shiro.version}</version>  
-        </dependency>  
-        
-        <dependency>  
-            <groupId>org.apache.shiro</groupId>  
-            <artifactId>shiro-spring</artifactId>  
-            <version>${shiro.version}</version>  
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-cas</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+
 		<!-- 日志文件管理包 -->
 		<dependency>
 			<groupId>log4j</groupId>

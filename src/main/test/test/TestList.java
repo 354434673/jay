@@ -7,9 +7,12 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 
 import org.junit.Test;
+
+import redis.clients.jedis.JedisPool;
 
 import com.jay.util.FinalData;
 import com.jay.util.SendEmail;
@@ -87,8 +90,12 @@ public class TestList {
         mailBean.setContext("<a href='www.baidu.com'><font color='red'>fdsfdsf</font></a>");  
         mailSenderService.sendMail(mailBean);  */
 	}
+	@Resource
+	private JedisPool jedisPool;
 	@Test
 	public void test4(){
-		SendEmail.sendTxtMail("354434673@qq.com", FinalData.getValidate("aaa", "354434673@qq.com", "12312321"));
+//		SendEmail.sendTxtMail("354434673@qq.com", FinalData.getValidate("aaa", "354434673@qq.com", "12312321"));
+		
+		jedisPool.getResource().set("354434673@qq.com", "a");
 	}
 }

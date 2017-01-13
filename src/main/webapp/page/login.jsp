@@ -9,16 +9,59 @@
     <meta name="author" content="">
     <!-- Le styles -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-   <!--  <link rel="stylesheet" href="assets/css/style.css"> -->
+    <script type="text/javascript" src="assets/js/validate/bootstrapValidator.min.js"></script>
     <link rel="stylesheet" href="assets/css/loader-style.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/signin.css">
+    <link rel="stylesheet" href="assets/js/validate/bootstrapValidator.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="assets/ico/minus.png">
+    <script type="text/javascript">
+    	$(function(){
+    		$('#loginForm').bootstrapValidator({
+    			message: 'This value is not valid',
+            	feedbackIcons: {
+               	valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+	            fields: {
+	                userName: {//验证input项：验证规则
+	                    message: '用户名验证失败',
+	                    validators: {
+	                        notEmpty: {//非空验证：提示消息
+	                            message: '用户名不能为空'
+	                        }
+	                    }
+	                },
+	                password:{
+	                    validators: {
+	                    	notEmpty: {
+	                            message: '密码不可为空'
+	                        },
+	                        stringLength:{
+	                        	min:6,
+	                        	max:20,
+	                        	message: '密码长度在6到20之间'
+	                        },
+	                        regexp: {
+                            	regexp: /^[a-zA-Z0-9_]+$/,
+                            	message: '密码只能包含大写、小写、数字和下划线'
+                        	}
+	                    }
+	                },
+	            }
+    		})
+    	})
+    	function todo(){
+    		alert("待完善")
+    		return false
+    	}
+    </script>
 </head>
 <body> 
     <!-- Preloader -->
@@ -39,16 +82,16 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box"> 
-                        <form role="form" action="/jay/user/login">
+                        <form id="loginForm" role="form" action="/jay/user/login">
                             <div class="form-group">
                                 <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
                                 <label for="inputUsernameEmail">用户名</label>
-                                <input type="text" id="inputUsernameEmail" name="userName" class="form-control">
+                                <input type="text" id="inputUsernameEmail" name="userName" class="form-control" placeholder="用户名登陆">
                             </div>
                             <div class="form-group">
                                 <!--a href="#" class="pull-right label-forgot">Forgot password?</a-->
                                 <label for="inputPassword">密码</label>
-                                <input type="password" id="inputPassword"  name="password" class="form-control">
+                                <input type="password" id="inputPassword"  name="password" class="form-control" placeholder="输入密码">
                             </div>
                             <div class="checkbox pull-left">
                                 <label>
@@ -59,24 +102,24 @@
                         </form>
                         <a class="forgotLnk" href="index.html"></a>
                         <div class="or-box">
-                            <center><span class="text-center login-with">Login or <b>Sign Up</b></span></center>
+                            <center><span class="text-center login-with">用户登录或 <b>以下合作伙伴登录</b></span></center>
                             <div class="row">
                                 <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-facebook btn-block">
-                                        <span class="entypo-facebook space-icon"></span>Facebook</a>
+                                    <a href="javascript:void(0)"  class="btn btn-facebook btn-block" onclick="todo()">
+                                        <span class="entypo-facebook space-icon" ></span>Facebook</a>
                                 </div>
                                 <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-twitter btn-block">
-                                        <span class="entypo-twitter space-icon"></span>Twitter</a>
+                                    <a href="javascript:void(0)"  class="btn btn-twitter btn-block" onclick="todo()">
+                                        <span class="entypo-twitter space-icon" ></span>Twitter</a>
                                         
                                 </div>
                             </div>
                             <div style="margin-top:25px" class="row">
                                 <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
+                                    <a href="javascript:void(0)"  class="btn btn-google btn-block" onclick="todo()"><span class="entypo-gplus space-icon"></span>Google +</a>
                                 </div>
                                 <div class="col-md-6 row-block">
-                                    <a href="index.html" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
+                                    <a href="javascript:void(0)"  class="btn btn-instagram btn-block" onclick="todo()"><span class="entypo-instagrem space-icon"></span>Instagram</a>
                                 </div>
                             </div>
                         </div>

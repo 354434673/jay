@@ -3,6 +3,7 @@ package com.jay.util;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
+ * md5加密.散列1024次
  *@author: BruceWayne
  *@date： 日期：2016-12-29 时间：下午6:09:37
  *@version 1.0

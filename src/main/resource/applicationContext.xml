@@ -48,4 +48,5 @@
 	<!-- 开启注解式事务 -->
 	<tx:annotation-driven/>
 	<import resource="spring-shiro.xml"/>
+	<import resource="spring-redis.xml"/>
 </beans>
