@@ -19,12 +19,21 @@
 				<!-- 注入安全管理器 -->
 				<property name="securityManager" ref="securityManager"/>
 				<!-- 执行登录时访问的url -->
-				<property name="loginUrl" value="/page/Login.jsp"></property>
+				<property name="loginUrl" value="/page/login/login.jsp"></property>
 				<!-- 成功后的跳转url -->
-				<property name="successUrl" value="/page/main.jsp"></property>
+				<property name="successUrl" value="/page/main.jsp"/>
+				<!-- 认证不通过访问的页面 -->
+				<property name="unauthorizedUrl" value="/page/login/login.jsp" />
+				
 				<property name="filterChainDefinitions">
 						<value>
-							/** = anon
+							/page/images/**=anon <!-- 图片文件 -->
+							/page/assets/**=anon <!-- 页面元素 -->
+							/page/lib/**=anon <!-- 页面元素 -->
+							/page/login/**=anon <!-- 注册用的页面,不需要拦截 -->
+							/user/** = anon <!-- 用户认证授权以及验证码的url -->
+							/validata/userName = anon <!-- 注册验证是否存在 -->
+							/** = authc <!-- 未登陆认证需拦截的资源 -->
 						</value>
 				</property>
 		</bean>
@@ -43,5 +52,11 @@
 				<property name="hashAlgorithmName" value="md5"/>
 				<property name="hashIterations" value="1024"/>
 		</bean>
-	
+		
+		<!-- 开启aop，对类代理 -->
+	    <aop:config proxy-target-class="true"></aop:config>
+	    <!-- 开启shiro注解支持 -->
+	    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        	<property name="securityManager" ref="securityManager" />
+    	</bean>
 </beans>

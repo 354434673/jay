@@ -21,7 +21,7 @@ public class CustmerMd5 extends AuthenticatingRealm{
 	@Resource
 	private UserDao userDao;
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token){
 		//获取token中主身份信息
 		String userName = (String) token.getPrincipal();
 		

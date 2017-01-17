@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,17 +12,36 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/page/assets/js/jquery.min.js"></script>
    <!--  <link rel="stylesheet" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/loader-style.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/signin.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <link rel="shortcut icon" href="<%=path%>/page/assets/ico/minus.png">
+        <script type="text/javascript"> 
+		var countdown=60; 
+		function settime(val) { 
+			if (countdown == 0) { 
+			val.removeAttribute("disabled");    
+			val.value="免费获取验证码"; 
+			countdown = 60; 
+			} else { 
+			val.setAttribute("disabled", true); 
+			val.value="重新发送(" + countdown + ")"; 
+			countdown--; 
+			} 
+			setTimeout(function() { 
+				settime(val) 
+				},
+			1000) 
+			$("#registForm").submit();
+		} 
+	</script> 
 </head>
 <body> 
     <!-- Preloader -->
@@ -29,22 +52,26 @@
         <div class="" id="login-wrapper" style="padding: 20% 0px 0px 0px">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                    <div id="logo-login" >
-                        <h2>新用户注册激活
-                        </h2>
+                    <div id="logo-login">
+                        <h3>新用户注册激活
+                        </h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box" align="center"> 
-                        	<font face="微软雅黑" size="5">请到个人邮箱点击激活链接</font>
+                   			 <font face="微软雅黑" size="3">请点击下列按钮,我们将会给你发送邮件用于激活</font>
                         <hr>
                         <div class="row-block">
                             <div class="row">
-                                <div class="col-md-12 row-block">
-                                    <a href="login.jsp" class="btn btn-primary btn-block">激活成功点这里</a>
-                                </div>
+                            <form id="registForm" role="form" action="<%=path%>/user/noActivateSendEmail" method="post">
+                            	<!-- 隐藏域 -->
+                            	<input type="hidden" name="userName" value=${userName}>
+                            	<input type="hidden" name="email" value=${email}>
+								<input type="submit" id="btn" class="btn btn-primary btn-block" value="点击激活用户"
+									onclick="settime(this)"/>                               
+                            </form>
                             </div>
                         </div
                         <div class="row-block">
@@ -55,7 +82,7 @@
                 </div>
             </div>
         </div>
- 		<p>&nbsp;</p>
+        <p>&nbsp;</p>
         <div style="text-align:center;margin:0 auto;">
             <h6 style="color:#fff;">Copyright(C)2016 fjcloudsoft.com All Rights Reserved<br />
 				仅供个人所有</h6>

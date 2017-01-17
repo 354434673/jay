@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
  <%@taglib prefix="shiro"  uri="http://shiro.apache.org/tags"%>
+ <%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!doctype html>
 <html lang="en"><head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+    <title>用户管理界面</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -14,7 +18,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
-
+ 	<link rel="shortcut icon" href="<%=path%>/page/assets/ico/minus.png">
     <script src="lib/jquery-1.11.1.min.js" type="text/javascript"></script>
 
         <script src="lib/jQuery-Knob/js/jquery.knob.js" type="text/javascript"></script>
@@ -97,7 +101,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="" href="index.html"><span class="navbar-brand"><span class="fa fa-paper-plane"></span> Aircraft</span></a></div>
+        <span class="navbar-brand"><span class="glyphicon glyphicon-leaf"> </span> Life管理页面</span></a></div>
 
         <div class="navbar-collapse collapse" style="height: 1px;">
           <ul id="main-menu" class="nav navbar-nav navbar-right">
@@ -243,26 +247,31 @@
                   <td>Mark</td>
                   <td>Tompson</td>
                   <td>the_mark7</td>
+                  <td>the_mark7</td>
                 </tr>
                 <tr>
                   <td>Ashley</td>
                   <td>Jacobs</td>
                   <td>ash11927</td>
+                  <td>the_mark7</td>
                 </tr>
                 <tr>
                   <td>Audrey</td>
                   <td>Ann</td>
                   <td>audann84</td>
+                  <td>the_mark7</td>
                 </tr>
                 <tr>
                   <td>John</td>
                   <td>Robinson</td>
                   <td>jr5527</td>
+                  <td>the_mark7</td>
                 </tr>
                 <tr>
                   <td>Aaron</td>
                   <td>Butler</td>
                   <td>aaron_butler</td>
+                  <td>the_mark7</td>
                 </tr>
                 <tr>
                   <td>Chris</td>

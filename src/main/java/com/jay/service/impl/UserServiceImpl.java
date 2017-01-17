@@ -1,5 +1,7 @@
 package com.jay.service.impl;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -39,13 +41,39 @@ public class UserServiceImpl implements UserService {
 		
 		userDao.registUser(user);
 	}
-	/* (non-Javadoc)
-	 * @see com.jay.service.UserService#updateState(java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void updateState(String userName, String email) {
 		
 		userDao.updateState(userName, email);
 	}
-	
+	@Override
+	public Map<String,Boolean> valiDataUserName(String userName) {
+		
+		User loginUser = userDao.loginUser(userName);
+		
+		Map<String,Boolean> map = new HashMap<String, Boolean>();
+		
+		if(loginUser==null){
+			/**
+			 * remote验证所需要的json数据
+			 */
+			map.put("valid", true);//true表示合法,验证通过
+		}else{
+			map.put("valid", false);//fasle表示不合法,验证不通过
+		}
+		return map;
+	}
+	@Override
+	public boolean valiUserActivate(String userName) {
+		
+		User loginUser = userDao.loginUser(userName);
+		
+		char userActivate = loginUser.getUserActivate();
+		
+		if(userActivate == '0'){//未激活
+			return false;
+		}else{//激活
+			return true;
+		}
+	}
 }

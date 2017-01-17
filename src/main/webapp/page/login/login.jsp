@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,18 +12,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/validate/bootstrapValidator.min.js"></script>
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="stylesheet" href="assets/js/validate/bootstrapValidator.min.css">
+    <script type="text/javascript" src="<%=path%>/page/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/page/assets/js/validate/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/loader-style.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/signin.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/js/validate/bootstrapValidator.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <link rel="shortcut icon" href="<%=path%>/page/assets/ico/minus.png">
     <script type="text/javascript">
     	$(function(){
     		$('#loginForm').bootstrapValidator({
@@ -73,8 +77,8 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div id="logo-login">
-                        <h2>Life个人系统
-                        </h2>
+                        <h3>Life个人系统
+                        </h3>
                     </div>
                 </div>
 
@@ -82,7 +86,7 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box"> 
-                        <form id="loginForm" role="form" action="/jay/user/login">
+                        <form id="loginForm" role="form" action="<%=path%>/user/login">
                             <div class="form-group">
                                 <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
                                 <label for="inputUsernameEmail">用户名</label>
@@ -102,8 +106,8 @@
                         </form>
                         <a class="forgotLnk" href="index.html"></a>
                         <div class="or-box">
-                            <center><span class="text-center login-with">用户登录或 <b>以下合作伙伴登录</b></span></center>
-                            <div class="row">
+                            <center><span class="text-center login-with">若未注册<b>-请点击下列按钮</b></span></center>
+<!--                             <div class="row">
                                 <div class="col-md-6 row-block">
                                     <a href="javascript:void(0)"  class="btn btn-facebook btn-block" onclick="todo()">
                                         <span class="entypo-facebook space-icon" ></span>Facebook</a>
@@ -121,13 +125,12 @@
                                 <div class="col-md-6 row-block">
                                     <a href="javascript:void(0)"  class="btn btn-instagram btn-block" onclick="todo()"><span class="entypo-instagrem space-icon"></span>Instagram</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
-                        <hr>
                         <div class="row-block">
                             <div class="row">
                                 <div class="col-md-12 row-block">
-                                    <a href="regist.jsp" class="btn btn-primary btn-block">新用户注册</a>
+                                    <a href="<%=path%>/page/login/regist.jsp" class="btn btn-primary btn-block">新用户注册</a>
                                 </div>
                             </div>
                         </div
@@ -139,11 +142,11 @@
                 </div>
             </div>
         </div>
- 		<p>&nbsp;</p>
+        <p>&nbsp;</p>
         <div style="text-align:center;margin:0 auto;">
             <h6 style="color:#fff;">Copyright(C)2016 fjcloudsoft.com All Rights Reserved<br />
 				仅供个人所有</h6>
-        </div>
+        </div>	
     </div>
 </body>
 </html>

@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,26 +12,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/validate/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/page/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/page/assets/js/validate/bootstrapValidator.min.js"></script>
    <!--  <link rel="stylesheet" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="assets/css/loader-style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="stylesheet" href="assets/js/validate/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/loader-style.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/css/signin.css">
+    <link rel="stylesheet" href="<%=path%>/page/assets/js/validate/bootstrapValidator.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <link rel="shortcut icon" href="<%=path%>/page/assets/ico/minus.png">
     <script type="text/javascript">
     	$(function(){
     		$('#registForm').bootstrapValidator({
     			message: 'This value is not valid',
             	feedbackIcons: {
                	valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
 	            fields: {
@@ -42,11 +45,10 @@
 	                         max: 30,
 	                         message: '用户名长度必须在6到30之间'
 	                     	},
-	                     	threshold : 6 ,//有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
+	                     	threshold :  6 , //有6字符以上才发送ajax请求，（input中输入一个字符，插件会向服务器发送一次，设置限制，6字符以上才开始）
 	                     	remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-		                         url: '/jay/user/validata',//验证地址
-		                         message: '用户已存在',//提示消息
-		                         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+		                         url: '<%=path%>/validata/userName',//验证地址
+		                         message: '该用户已存在',//提示消息
 		                         type: 'POST'//请求方式
 		                         /**自定义提交数据，默认值提交当前input value
 		                          *  data: function(validator) {
@@ -136,15 +138,15 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div id="logo-login">
-                        <h2>Life注册
-                        </h2>
+                        <h3>Life注册
+                        </h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box"> 
-                        <form id="registForm" role="form" action="/jay/user/regist" method="post">
+                        <form id="registForm" role="form" action="<%=path%>/user/regist" method="post">
                             <div class="form-group">
                                 <label for="inputUsernameEmail">用户名</label>
 	                                <div class="input-group">
@@ -204,14 +206,14 @@
                             </div>
                             <div style="margin-top: 5px"/>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">确认注册</button>
-                            <a class="btn btn-info btn-block" href="login.jsp">返回用户登录</a>
+                            <a class="btn btn-info btn-block" href="<%=path%>/page/login/login.jsp">返回用户登录</a>
                         </form>
 
                     </div>
                 </div>
             </div>
         </div>
- 		<p>&nbsp;</p>
+        <p>&nbsp;</p>
         <div style="text-align:center;margin:0 auto;">
             <h6 style="color:#fff;">Copyright(C)2016 fjcloudsoft.com All Rights Reserved<br />
 				仅供个人所有</h6>

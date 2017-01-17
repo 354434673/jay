@@ -14,7 +14,13 @@ public class FinalData {
 	public static final char STATE_NORMAL = '1';//正常
 	
 	public static final char STATE_FREEZE = '0';//冻结
-	
+	/**
+	 * 邮件主题内容
+	 *@param userName
+	 *@param email
+	 *@param validateCode
+	 *@return
+	 */
 	public static String getValidate(String userName, String email,String validateCode){
 		
 		StringBuffer sb=new StringBuffer("点击下面链接激活账号，10分钟内有效，请尽快激活！</br>");

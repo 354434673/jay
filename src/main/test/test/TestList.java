@@ -16,6 +16,7 @@ import redis.clients.jedis.JedisPool;
 
 import com.jay.util.FinalData;
 import com.jay.util.SendEmail;
+import com.jay.util.WeatherUtil;
 /**
  * 
 *类描述：
@@ -74,9 +75,8 @@ public class TestList {
 	}
 	@Test
 	public void test3(){
-		/*Md5Hash md5Hash3 = new Md5Hash("123456", "nc06", 1024);
-		System.out.println(md5Hash3.toHex());*/
-		System.out.println(""+new Date().getMonth()+""+new Date().getHours()+""+new Date().getMinutes());
+		String weatherInform = WeatherUtil.getWeatherInform("北京");
+		System.out.println(weatherInform);
 	}
 	@Test
 	public void test5() throws UnsupportedEncodingException, MessagingException{

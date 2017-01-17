@@ -16,7 +16,7 @@ import java.net.URLEncoder;
  */
 public class WeatherUtil {
 	
-	static String getWeatherInform(String cityName) {
+	public static String getWeatherInform(String cityName) {
 		// 百度天气API
 		String baiduUrl = null;
 		try {

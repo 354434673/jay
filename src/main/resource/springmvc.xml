@@ -44,4 +44,5 @@
 			文件上传必须配置文件上传解析器,要求解析器的id必须为multipartResolver
 	 	-->
 		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+		
 </beans>

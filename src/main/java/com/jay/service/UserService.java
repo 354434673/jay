@@ -1,10 +1,9 @@
 package com.jay.service;
 
-import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.jay.dao.UserDao;
 import com.jay.entity.User;
 
 /**
@@ -13,6 +12,12 @@ import com.jay.entity.User;
  *@version 1.0
  */
 public interface UserService {
+	/**
+	 * 用于验证该用户是否存在
+	 *@param userName
+	 *@return
+	 */
+	Map<String,Boolean> valiDataUserName(String userName);
 	/**
 	 * 用户注册service
 	 *@param user
@@ -24,4 +29,10 @@ public interface UserService {
 	 *@param email
 	 */
 	void updateState(String userName, String email);
+	/**
+	 * 判断用户是否激活
+	 *@param userName
+	 *@return
+	 */
+	boolean valiUserActivate(@Param("user_username")String userName);
 }
